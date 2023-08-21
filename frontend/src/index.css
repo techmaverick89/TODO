@@ -12,7 +12,7 @@ body {
         'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-image: url('D:\\Deploy\\TODO\\frontend\\public\\bg.jpg');
+    background-image: url('..\\public\\bg.jpg');
     background-size: cover;
     color: #35a29f;
     font-family: 'Shantell Sans', cursive;

@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config();
+console.log(process.env.PORT);
+// require('dotenv').config();
 const cors = require('cors');
 const routes = require('./routes/ToDoRoute');
 const path = require('path');
@@ -22,10 +23,9 @@ app.use(routes);
 
 // --------------------------deployment------------------------------
 
-const __dirname1 = path.resolve(); //đường dẫn tuyệt đối đến thư mục hiện tại: mern-chat-app/ not .../backend
 console.log(path.join(__dirname, '..', 'frontend'));
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname1, '..', '/frontend/build')));
+if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV == undefined) {
+    app.use(express.static(path.join(__dirname, '..', '/frontend/build')));
     app.get('/myserver', (req, res) => {
         res.json({
             server: process.env.PORT,
@@ -44,4 +44,6 @@ if (process.env.NODE_ENV === 'production') {
 
 // --------------------------deployment------------------------------
 
-app.listen(process.env.PORT, () => console.log('Server running on port ' + process.env.PORT));
+app.listen(process.env.PORT || 8080, () =>
+    console.log('Server running on port ' + process.env.PORT || 8080),
+);

@@ -4,7 +4,8 @@
     "description": "",
     "main": "Server.js",
     "scripts": {
-        "start": "nodemon --inspect Server.js"
+        "start": "nodemon --inspect Server.js",
+        "test": "echo hello"
     },
     "author": "",
     "license": "ISC",
