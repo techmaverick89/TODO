@@ -4,7 +4,7 @@
     "description": "",
     "main": "Server.js",
     "scripts": {
-        "start": "nodemon --inspect Server.js",
+        "start": "nodemon --inspect server.js",
         "test": "echo hello"
     },
     "author": "",

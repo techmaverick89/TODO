@@ -21,28 +21,28 @@ mongoose
 // Routes
 app.use(routes);
 
-// --------------------------deployment------------------------------
+// // --------------------------deployment------------------------------
 
-console.log(path.join(__dirname, '..', 'frontend'));
-if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV == undefined) {
-    app.use(express.static(path.join(__dirname, '..', '/frontend/build')));
-    app.get('/myserver', (req, res) => {
-        res.json({
-            server: process.env.PORT,
-            Real_IP: req.headers['x-real-ip'],
-            'X-Forwarded-For': req.headers['x-forwarded-for'],
-        });
-    });
-    app.get('*', (req, res) =>
-        res.sendFile(path.resolve(__dirname1, '..', 'frontend', 'build', 'index.html')),
-    );
-} else {
-    app.get('/', (req, res) => {
-        res.send('API is running..');
-    });
-}
+// console.log(path.join(__dirname, '..', 'frontend'));
+// if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV == undefined) {
+//     app.use(express.static(path.join(__dirname, '..', '/frontend/build')));
+//     app.get('/myserver', (req, res) => {
+//         res.json({
+//             server: process.env.PORT,
+//             Real_IP: req.headers['x-real-ip'],
+//             'X-Forwarded-For': req.headers['x-forwarded-for'],
+//         });
+//     });
+//     app.get('*', (req, res) =>
+//         res.sendFile(path.resolve(__dirname1, '..', 'frontend', 'build', 'index.html')),
+//     );
+// } else {
+//     app.get('/', (req, res) => {
+//         res.send('API is running..');
+//     });
+// }
 
-// --------------------------deployment------------------------------
+// // --------------------------deployment------------------------------
 
 app.listen(process.env.PORT || 8080, () =>
     console.log('Server running on port ' + process.env.PORT || 8080),

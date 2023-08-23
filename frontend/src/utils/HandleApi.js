@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:8021';
+const baseUrl = 'http://localhost:8080';
 
 const getAllToDo = (setToDo) => {
-    axios.get(`${baseUrl}/api/`).then(({ data }) => {
+    axios.get(`${baseUrl}/api`).then(({ data }) => {
         console.log('data ---> ', data);
         setToDo(data);
     });
