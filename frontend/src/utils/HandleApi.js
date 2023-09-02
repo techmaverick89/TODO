@@ -3,7 +3,7 @@ import axios from 'axios';
 const baseUrl = 'http://localhost:8080';
 
 const getAllToDo = (setToDo) => {
-    axios.get(`${baseUrl}/api`).then(({ data }) => {
+    axios.get(`/api`).then(({ data }) => {
         console.log('data ---> ', data);
         setToDo(data);
     });
@@ -11,7 +11,7 @@ const getAllToDo = (setToDo) => {
 
 const addToDo = (text, setText, setToDo) => {
     axios
-        .post(`${baseUrl}/api/save`, { text })
+        .post(`/api/save`, { text })
         .then((data) => {
             console.log(data);
             setText('');
@@ -22,7 +22,7 @@ const addToDo = (text, setText, setToDo) => {
 
 const updateToDo = (toDoId, text, setToDo, setText, setIsUpdating) => {
     axios
-        .post(`${baseUrl}/api/update`, { _id: toDoId, text })
+        .post(`/api/update`, { _id: toDoId, text })
         .then((data) => {
             setText('');
             setIsUpdating(false);
@@ -33,7 +33,7 @@ const updateToDo = (toDoId, text, setToDo, setText, setIsUpdating) => {
 
 const deleteToDo = (_id, setToDo) => {
     axios
-        .post(`${baseUrl}/api/delete`, { _id })
+        .post(`/api/delete`, { _id })
         .then((data) => {
             console.log(data);
             getAllToDo(setToDo);
